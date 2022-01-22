@@ -96,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="iLD-Ad-Q67" id="at2-mG-L2x"/>
+                        <segue destination="4W0-c8-OOr" kind="showDetail" identifier="ShowDetail" id="4I9-0L-Hps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,16 +106,16 @@
         <!--메뉴소개-->
         <scene sceneID="WO8-3h-fe5">
             <objects>
-                <viewController id="4W0-c8-OOr" userLabel="메뉴소개" sceneMemberID="viewController">
+                <viewController id="4W0-c8-OOr" userLabel="메뉴소개" customClass="MenuViewController" customModule="MatJipSoGae" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I6p-2G-dDo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ua2-cS-fRQ">
-                                <rect key="frame" x="0.0" y="264" width="414" height="598"/>
+                                <rect key="frame" x="0.0" y="220" width="414" height="588"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="Oc3-kG-teC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="101" id="Oc3-kG-teC" customClass="MenuTableViewCell" customModule="MatJipSoGae" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc3-kG-teC" id="ilK-Vi-CyE">
@@ -163,18 +164,23 @@
                                                 <constraint firstAttribute="bottom" secondItem="EEr-Zg-A77" secondAttribute="bottom" constant="20" id="nVj-cu-TF1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="menuImg" destination="391-Nw-yfk" id="qu9-Pl-UXc"/>
+                                            <outlet property="menuLbl" destination="EEr-Zg-A77" id="UgF-on-gK0"/>
+                                            <outlet property="priceLbl" destination="FIS-JL-Iab" id="SQV-Qz-C3y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-XZ-Ve4">
-                                <rect key="frame" x="20" y="94" width="120" height="301"/>
+                                <rect key="frame" x="20" y="50" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="FTA-aA-YpW"/>
                                     <constraint firstAttribute="width" constant="120" id="Fh3-rN-hUr"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매장 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-54-hoa">
-                                <rect key="frame" x="150" y="94" width="214" height="60"/>
+                                <rect key="frame" x="150" y="50" width="214" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="XNa-Zv-qhX"/>
                                 </constraints>
@@ -183,7 +189,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSL-Yj-gLQ">
-                                <rect key="frame" x="150" y="164" width="48.5" height="50"/>
+                                <rect key="frame" x="150" y="120" width="48.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="M7s-U9-78b"/>
                                 </constraints>
@@ -191,7 +197,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="지도"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSP-04-Xbe">
-                                <rect key="frame" x="218.5" y="164" width="145.5" height="50"/>
+                                <rect key="frame" x="218.5" y="120" width="145.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="d45-G5-Hbc"/>
                                 </constraints>
@@ -224,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgC-b4-hfR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714.49275362318849" y="93.75"/>
+            <point key="canvasLocation" x="836" y="94"/>
         </scene>
     </scenes>
     <resources>
