@@ -9,9 +9,9 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var priceLbl: UILabel!
-    @IBOutlet weak var menuLbl: UILabel!
-    @IBOutlet weak var menuImg: UIImageView!
+    @IBOutlet weak var priceLbl: UILabel! // 메뉴 가격표시할 라벨 연결
+    @IBOutlet weak var menuLbl: UILabel! // 메뉴 이름 라벨 연결
+    @IBOutlet weak var menuImg: UIImageView! // 메뉴 이미지 연결
     
     override func awakeFromNib() {
         super.awakeFromNib()

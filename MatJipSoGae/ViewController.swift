@@ -36,7 +36,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! MyTableViewCell
         // cell의 아이디가 "myCell"인 것을 사용
         // as를 사용해서 부모를 자식으로 바꾼다. = DownCasting
-
+        
         cell.nameLbl.text = self.filteredData[indexPath.row] // nameLbl의 text를 restName의 행의 번호로 초기화
         cell.categoryLbl.text = self.restCategory[indexPath.row]  // categoryLbl의 text를 restCategory의 행의 번호로 초기화
         cell.restImg?.image = UIImage(named: "\(indexPath.row).png")
@@ -46,6 +46,15 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {  // 행(cell)을 클릭했을 때
         performSegue(withIdentifier: "ShowDetail", sender: indexPath.row)
         // cell을 클릭했을 때 ShowDetail로 이동하면서 indexPath.row값을 보낸다.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" { // segue에 대한 identifier에 대한 값을 비교
+            let vcSend = segue.destination as? MenuViewController
+            //segue에 대한 destination이 MenuViewController가 맞다면 변수 vcSend는 MenuViewController를 참조
+            if let firstVal = sender as? Int? { //performSegue를 통해서 받아온 sender를 firstVal에 대입
+                vcSend?.hang = firstVal // vcSend?.hang 변수에 firstVal를 대입
+            }
+        }
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? restName: restName.filter({(dataString:String) -> Bool in
